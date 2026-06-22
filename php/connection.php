@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $db = 'gerenciadordb';
-$username = '';
-$password = '';
+$username = 'aluno';
+$password = 'senha';
 try{
     $conexao = new PDO("mysql:host=$host;dbname=$db",$username,$password);
     $conexao -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

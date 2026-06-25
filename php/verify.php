@@ -13,11 +13,12 @@
         if($usuario["login"] == $login){
             if($usuario["senha"] == $pass){
                 $_SESSION["login"] = $login;
+                $_SESSION["id"] = $usuario["id"];
             }
         }
     }
     if($_SESSION["login"] != ""){
-        echo "<script>alert('Bem-vindo(a)!'); window.location = 'home.php'; </script>";
+        echo "<script>alert('Bem-vindo(a)!'); window.location = '../home.php'; </script>";
     } else {
         echo "<script>alert('Erro! Login ou senha incorretos!'); window.location = '../index.php';</script>";
     }

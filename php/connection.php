@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $db = 'gerenciadordb';
-$username = 'aluno';
+$username = 'work';
 $password = 'senha';
 try{
     $conexao = new PDO("mysql:host=$host;dbname=$db",$username,$password);

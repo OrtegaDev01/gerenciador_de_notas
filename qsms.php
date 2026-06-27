@@ -18,6 +18,6 @@
         <a href="qsms.php">Quem somos</a>
         <a href="login.php">Login</a>
     </header>
-    <h1>Escola X</h1>
+    <h1>Quem somos</h1>
 </body>
 </html>

@@ -34,6 +34,9 @@
                 ];
             }
         }
+        if($dados["comando"] == "cadastrar"){
+            $comando = $conexao->query("insert into usuarios() values()"); //inserir
+        }
     }
     if(ob_get_length()){
         ob_clean(); //necessário para limpar coisas de include e session

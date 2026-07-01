@@ -57,6 +57,32 @@
             }
             
         }
+        if($dados["comando"] == "cadastrar-turma"){
+            $nome = $dados["nome"];
+            $desc = $dados["desc"];
+            $nomeTabela = $nome . "tb";
+            try{
+                $comand = $conexao->query("select * from cursos");
+                $cursos = $comand->fetchAll(PDO::FETCH_ASSOC);
+                foreach($cursos as $curso){
+                    if($curso["nome"] == $dados["nome"]){
+                        $resposta = ["status" => "falha-nome"];
+                    }
+                }
+                if(!array_key_exists("status", $resposta)){
+                    $comando = $conexao->query("insert into cursos(nome, descricao) values('$nome', '$desc')");
+                    $comando2 = $conexao->query("
+                        create table $nomeTabela(
+                            id int auto_increment primary key,
+                            nome varchar(90),
+                            descricao varchar(160)
+                        )");
+                    $resposta = ["status" => "sucesso"];
+                }
+            }catch(Exception $erro){
+                $resposta = ["status" => "falha"];
+            }
+        }
     }
     if(ob_get_length()){
         ob_clean(); //necessário para limpar coisas de include e session

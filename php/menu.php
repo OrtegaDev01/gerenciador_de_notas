@@ -33,4 +33,34 @@
             }
         </script>";
     }
+    if($_SESSION["func"] == "professor"){
+        echo "<a href='home.php'>Início</a>";
+        echo "<a href='cursos.php'>Cursos</a>";
+        echo "<input type='button' value='Sair' onclick='sair()' id='sair'>";
+        echo "
+        <script>
+            function sair(){
+                const dados = {
+                    comando: 'sair'
+                }
+                fetch('php/acoes.php', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify(dados)
+                })
+                .then(response => response.json())
+                .then(dado => {
+                    if(dado['status'] == 'sucesso'){
+                        alert('Saindo...');
+                        window.location = 'login.php';
+                    }
+                })
+                .catch(error => {
+                    alert('Erro: '+error);
+                })
+            }
+        </script>";
+    }
     ?>

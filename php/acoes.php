@@ -83,6 +83,10 @@
                 $resposta = ["status" => "falha"];
             }
         }
+        if(){
+
+        }
+
     }
     if(ob_get_length()){
         ob_clean(); //necessário para limpar coisas de include e session
